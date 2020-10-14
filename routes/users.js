@@ -1,12 +1,13 @@
 var express = require('express');
 var router = express.Router();
-const pool = require('../controllers/pool');
 
-const getUsers = async function(req, res, next) {
-  const response = await pool.query('SELECT * from users');
-  res.status(200).json(response.rows);
-}
-/* GET users listing. */
+const { getUsers, getUserById, updateUser, 
+        createUser, deleteUser } = require('../controllers/users');
+
 router.get('/', getUsers);
+router.post('/',createUser);
+router.get('/:id', getUserById);
+router.delete('/:id', deleteUser);
+router.put('/:id', updateUser);
 
 module.exports = router;
