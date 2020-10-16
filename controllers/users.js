@@ -10,14 +10,14 @@ const getUserById = async function(req, res, next) {
     res.status(200).json(response.rows);
   }
 
-const createUser= async function(req, res, next) {
-    const { firstname, lastname, phone, email, userpassword } = req.body;
-    const response = await pool.query('INSERT INTO users (firstname, lastname, phone, email, userpassword) VALUES ($1, $2, $3, $4, $5)'
-         , [firstname, lastname, phone, email, userpassword]);
+const createUser = async function(req, res, next) {
+    const { firstname, lastname, phone, email, ci, userpassword } = req.body;
+    const response = await pool.query('INSERT INTO users (firstname, lastname, phone, email, ci, userpassword) VALUES ($1, $2, $3, $4, $5, $6)'
+         , [firstname, lastname, phone, email, ci, userpassword]);
     res.json({
         message: "correctly added",
         body: {
-            user: {firstname, lastname, phone, email, userpassword}
+            user: {firstname, lastname, phone, email, ci, userpassword}
         }
     });
   }
