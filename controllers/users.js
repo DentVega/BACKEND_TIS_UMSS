@@ -18,7 +18,7 @@ const createUser = async function(req, res, next) {
     res.json({
         message: "correctly added",
         body: {
-            val
+            res: val.rows
         }
     });
   }
