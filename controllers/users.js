@@ -14,10 +14,11 @@ const createUser = async function(req, res, next) {
     const { firstname, lastname, phone, email, ci, userpassword } = req.body;
     const response = await pool.query('INSERT INTO users (firstname, lastname, phone, email, ci, userpassword) VALUES ($1, $2, $3, $4, $5, $6)'
          , [firstname, lastname, phone, email, ci, userpassword]);
+    const val = await pool.query('SELECT * from users where email = $1', [email]);
     res.json({
         message: "correctly added",
         body: {
-            user: {firstname, lastname, phone, email, ci, userpassword}
+            val
         }
     });
   }

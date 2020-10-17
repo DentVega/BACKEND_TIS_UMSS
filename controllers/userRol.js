@@ -6,7 +6,7 @@ const getAll = async function(req, res, next) {
   }
 
 const getRolByUserid = async function(req, res, next) {
-    const response = await pool.query('SELECT * from userrol where users_idusers = $1', [req.params.id]);
+    const response = await pool.query('SELECT r.* from userrol ur, roles r where ur.users_idusers = $1 and ur.roles_idroles = r.idroles' , [req.params.id]);
     res.status(200).json(response.rows);
   }
 
