@@ -33,7 +33,7 @@ const updateUser = async function(req, res, next) {
     const id = req.params.id;
     const response = await pool.query('UPDATE users SET firstname = $1, lastname = $2, phone = $3, email = $4,'
     + 'userpassword = $5, where idusers = $6', [ firstname, lastname, phone, email, userpassword, id]);
-    res.json("updated sucessfully");
+    res.json(`updated sucessfully user: ${id}`);
   }
 
 module.exports = {
