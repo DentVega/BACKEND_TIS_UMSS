@@ -31,8 +31,8 @@ const deleteUser = async function(req, res, next) {
 const updateUser = async function(req, res, next) {
     const { firstname, lastname, phone, email, userpassword } = req.body;
     const id = req.params.id;
-    const response = await pool.query('UPDATE users SET firstname = $1, lastname = $2, phone = $3, email = $4,'
-    + 'userpassword = $5, where idusers = $6', [ firstname, lastname, phone, email, userpassword, id]);
+    const response = await pool.query('UPDATE users SET firstname = $1, lastname = $2, phone = $3, email = $4, '
+    + 'userpassword = $5 where idusers = $6', [ firstname, lastname, phone, email, userpassword, id]);
     res.json(`updated sucessfully user: ${id}`);
   }
 
