@@ -10,6 +10,11 @@ const getUserById = async function(req, res, next) {
     res.status(200).json(response.rows);
   }
 
+const getUserByEmail = async function(req, res, next) {
+    const response = await pool.query('SELECT * from users where email = $1', [req.params.email]);
+    res.status(200).json(response.rows.length);
+  }
+
 const createUser = async function(req, res, next) {
     const { firstname, lastname, phone, email, ci, userpassword } = req.body;
     const response = await pool.query('INSERT INTO users (firstname, lastname, phone, email, ci, userpassword) VALUES ($1, $2, $3, $4, $5, $6)'
@@ -37,5 +42,5 @@ const updateUser = async function(req, res, next) {
   }
 
 module.exports = {
-    getUsers, getUserById, deleteUser, updateUser, createUser
+    getUsers, getUserById, deleteUser, updateUser, createUser, getUserByEmail
 }
