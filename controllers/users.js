@@ -42,9 +42,5 @@ const updateUser = async function(req, res, next) {
   }
 
 module.exports = {
-<<<<<<< HEAD
     getUsers, getUserById, deleteUser, updateUser, createUser, getUserByEmail
-=======
-    getUsers, getUserById, deleteUser, updateUser, createUser
->>>>>>> 59c7feaa7b3618210156f2973f0aebb177293c8d
 }

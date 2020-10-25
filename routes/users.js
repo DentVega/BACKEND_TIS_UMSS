@@ -11,5 +11,4 @@ router.get('/email/:email', getUserByEmail);
 router.delete('/:id', deleteUser);
 router.put('/:id', updateUser);
 
-
 module.exports = router;
