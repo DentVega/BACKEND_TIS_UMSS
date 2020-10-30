@@ -10,6 +10,8 @@ var usersRouter = require('./routes/users');
 let rolesRouter = require('./routes/roles');
 let userrolRouter = require('./routes/userRol');
 let loginRouter = require('./routes/login');
+let rolfuncRouter = require('./routes/rolFunc');
+let funcionesRouter = require('./routes/funciones');
 
 var app = express();
 
@@ -29,7 +31,8 @@ app.use('/users', usersRouter);
 app.use('/roles', rolesRouter);
 app.use('/userrol', userrolRouter);
 app.use('/login', loginRouter);
-
+app.use('/rolfun', rolfuncRouter);
+app.use('/funcion', funcionesRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
