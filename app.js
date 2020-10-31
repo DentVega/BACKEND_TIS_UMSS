@@ -12,6 +12,15 @@ let userrolRouter = require('./routes/userRol');
 let loginRouter = require('./routes/login');
 let rolfuncRouter = require('./routes/rolFunc');
 let funcionesRouter = require('./routes/funciones');
+let facultadRouter = require('./routes/facultad');
+let horarioRouter = require('./routes/horario');
+let carreraRouter = require('./routes/carrera');
+let materiaRouter = require('./routes/materia');
+let grupoRouter = require('./routes/grupo');
+let grupoHorariosRouter = require('./routes/grupoHorarios');
+let transactionRouter = require('./routes/transaction');
+let usersLogRouter = require('./routes/usersLog');
+const usersLog = require('./controllers/usersLog');
 
 var app = express();
 
@@ -33,6 +42,14 @@ app.use('/userrol', userrolRouter);
 app.use('/login', loginRouter);
 app.use('/rolfun', rolfuncRouter);
 app.use('/funcion', funcionesRouter);
+app.use('/facultad', facultadRouter);
+app.use('/horario', horarioRouter);
+app.use('/carrera', carreraRouter);
+app.use('/materia', materiaRouter);
+app.use('/grupo', grupoRouter);
+app.use('/grupohorarios', grupoHorariosRouter);
+app.use('/transaction', transactionRouter);
+app.use('/userslog', usersLogRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
