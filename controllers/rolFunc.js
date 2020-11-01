@@ -17,7 +17,7 @@ const createrolfunc = async function(req, res, next) {
   }
 
 const deleteRolfunc = async function(req, res, next) {
-    const response = await pool.query('DELETE FROM rolfunc where roles_idroles = $1 and funcion_idfuncion = $2', [req.params.idroles, req.params.funcion]);
+    const response = await pool.query('DELETE FROM rolfunc where roles_idroles = $1 and funcion_idfuncion = $2', [req.params.idroles, req.params.idfuncion]);
     res.json(`deleted sucessfully by ${req.params.idroles} and ${req.params.idfuncion}`);
   }
 
