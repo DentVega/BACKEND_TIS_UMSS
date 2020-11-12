@@ -20,7 +20,7 @@ let grupoRouter = require('./routes/grupo');
 let grupoHorariosRouter = require('./routes/grupoHorarios');
 let transactionRouter = require('./routes/transaction');
 let usersLogRouter = require('./routes/usersLog');
-const usersLog = require('./controllers/usersLog');
+let faltaRotuer = require('./routes/falta');
 
 var app = express();
 
@@ -50,6 +50,7 @@ app.use('/grupo', grupoRouter);
 app.use('/grupohorarios', grupoHorariosRouter);
 app.use('/transaction', transactionRouter);
 app.use('/userslog', usersLogRouter);
+app.use('/falta', faltaRotuer);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
