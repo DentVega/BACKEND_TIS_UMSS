@@ -10,6 +10,12 @@ const getById = async function(req, res, next) {
     res.status(200).json(response.rows);
   }
 
+const getByUserId = async function(req, res, next) {
+    const response = await pool.query('SELECT * from falta where users_idusers = $1', [req.params.id]);
+    res.status(200).json(response.rows);
+  }
+
+
 const createOne = async function(req, res, next) {
     const { users_idusers, fecha, archivo } = req.body;
     const response = await pool.query('INSERT INTO falta (users_idusers, fecha, archivo) VALUES ($1, $2, $3)'
@@ -36,5 +42,5 @@ const updateById = async function(req, res, next) {
   }
 
 module.exports = {
-   getAll, updateById, deleteById, createOne, getById
+   getAll, updateById, deleteById, createOne, getById, getByUserId
 }
