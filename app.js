@@ -21,6 +21,7 @@ let grupoHorariosRouter = require('./routes/grupoHorarios');
 let transactionRouter = require('./routes/transaction');
 let usersLogRouter = require('./routes/usersLog');
 let faltaRotuer = require('./routes/falta');
+let sendmailRouter = require('./routes/sendmail');
 
 var app = express();
 
@@ -51,6 +52,7 @@ app.use('/grupohorarios', grupoHorariosRouter);
 app.use('/transaction', transactionRouter);
 app.use('/userslog', usersLogRouter);
 app.use('/falta', faltaRotuer);
+app.use('/sendmail', sendmailRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
