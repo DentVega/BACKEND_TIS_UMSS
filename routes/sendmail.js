@@ -3,6 +3,6 @@ var router = express.Router();
 
 const { sendCredentials } = require('../controllers/sendmail');
 
-router.get('/', sendCredentials);
+router.post('/', sendCredentials);
 
 module.exports = router;
