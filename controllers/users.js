@@ -12,7 +12,7 @@ const getUserById = async function(req, res, next) {
 
 const getUserByEmail = async function(req, res, next) {
     const response = await pool.query('SELECT * from users where email = $1', [req.params.email]);
-    res.status(200).json(response.rows.length);
+    res.status(200).json(response.rows);
   }
 
 const createUser = async function(req, res, next) {
