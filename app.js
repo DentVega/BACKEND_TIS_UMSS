@@ -22,6 +22,8 @@ let transactionRouter = require('./routes/transaction');
 let usersLogRouter = require('./routes/usersLog');
 let faltaRotuer = require('./routes/falta');
 let sendmailRouter = require('./routes/sendmail');
+let assistanceRouter = require('./routes/assistance');
+let addicionalReportRouter = require('./routes/addicionalReport');
 
 var app = express();
 
@@ -53,6 +55,9 @@ app.use('/transaction', transactionRouter);
 app.use('/userslog', usersLogRouter);
 app.use('/falta', faltaRotuer);
 app.use('/sendmail', sendmailRouter);
+app.use('/assistance', assistanceRouter);
+app.use('/addicional', addicionalReportRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
