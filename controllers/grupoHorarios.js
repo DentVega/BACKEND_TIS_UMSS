@@ -36,6 +36,11 @@ const updateById = async function(req, res, next) {
     res.json(`updated sucessfully by: ${id}`);
   }
 
+const getByUser = async function(req, res, next) {
+    const response = await pool.query('SELECT * from grupohorarios where users_idusers = $1', [req.params.id]);
+    res.status(200).json(response.rows);
+  }
+
 module.exports = {
-   getAll, updateById, deleteById, createOne, getById
+   getAll, updateById, deleteById, createOne, getById, getByUser
 }
