@@ -37,6 +37,16 @@ const updateById = async function(req, res, next) {
     res.json(`updated sucessfully by: ${id}`);
   }
 
+const getWeekByDate = async function(req, res, next) {
+    const response = await pool.query('SELECT * FROM assistance where beginweek <= $1 and endweek >= $1', [req.params.date]);
+    res.status(200).json(response.rows);
+  }
+
+const getMonthByDate = async function(req, res, next) {
+    const response = await pool.query('SELECT * FROM assistance where extract(month from beginweek) = $1', [req.params.date]);
+    res.status(200).json(response.rows);
+  }
+
 module.exports = {
-   getAll, updateById, deleteById, createOne, getById
+   getAll, updateById, deleteById, createOne, getById, getMonthByDate, getWeekByDate
 }
