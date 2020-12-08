@@ -13,10 +13,11 @@ const getRolById = async function(req, res, next) {
 const createRol = async function(req, res, next) {
     const { rolename } = req.body;
     const response = await pool.query('INSERT INTO roles (rolename) VALUES ($1)', [rolename]);
+    const val = await pool.query('SELECT * from roles where rolename = $1', [rolename]);
     res.json({
         message: "correctly added",
         body: {
-            rol: { rolename }
+            res: val.rows
         }
     });
   }
