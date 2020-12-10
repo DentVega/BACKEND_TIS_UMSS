@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:heroku" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9a13f72d-95f9-4ede-839a-6e8461573887" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/controllers/grupoHorarios.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/grupoHorarios.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/grupoHorarios.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/grupoHorarios.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Brian Vega &lt;dentvega6@gmail.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1j6Q3pmKjYJA3ajZ1PYPo0GjYYY" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9a13f72d-95f9-4ede-839a-6e8461573887" name="Default Changelist" comment="" />
+      <created>1603121864339</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603121864339</updated>
+      <workItem from="1603121865482" duration="629000" />
+      <workItem from="1603122963595" duration="7304000" />
+      <workItem from="1603145041263" duration="609000" />
+      <workItem from="1603147288789" duration="5504000" />
+      <workItem from="1603189123681" duration="353000" />
+      <workItem from="1603210567144" duration="5836000" />
+      <workItem from="1603536703614" duration="1388000" />
+      <workItem from="1603922866771" duration="2173000" />
+      <workItem from="1604268172846" duration="616000" />
+      <workItem from="1604414828212" duration="3534000" />
+      <workItem from="1604480319545" duration="599000" />
+      <workItem from="1604511428564" duration="1781000" />
+      <workItem from="1604663402682" duration="5766000" />
+      <workItem from="1604762659228" duration="3582000" />
+      <workItem from="1604882536268" duration="9194000" />
+      <workItem from="1605126636946" duration="2971000" />
+      <workItem from="1605154853010" duration="1259000" />
+      <workItem from="1605197923704" duration="15000" />
+      <workItem from="1605293691608" duration="1105000" />
+      <workItem from="1605627851190" duration="1234000" />
+      <workItem from="1607587687892" duration="3637000" />
+    </task>
+    <task id="LOCAL-00001" summary="- add cors">
+      <created>1603122083807</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603122083807</updated>
+    </task>
+    <task id="LOCAL-00002" summary="- correccion de actualizar usuario">
+      <created>1603167792470</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1603167792470</updated>
+    </task>
+    <task id="LOCAL-00003" summary="- correccion de actualizar usuario">
+      <created>1603168041750</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1603168041750</updated>
+    </task>
+    <task id="LOCAL-00004" summary="- correccion de actualizar usuario">
+      <created>1603168271903</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1603168271903</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="- add cors" />
+    <MESSAGE value="- correccion de actualizar usuario" />
+    <option name="LAST_COMMIT_MESSAGE" value="- correccion de actualizar usuario" />
+  </component>
+</project>

@@ -1,0 +1,56 @@
+Index: controllers/grupoHorarios.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>const pool = require('./pool');\n\nconst getAll = async function(req, res, next) {\n    const response = await pool.query('SELECT * from grupohorarios');\n    res.status(200).json(response.rows);\n  }\n\nconst getById = async function(req, res, next) {\n    const response = await pool.query('SELECT * from grupohorarios where idgrupohorarios = $1', [req.params.id]);\n    res.status(200).json(response.rows);\n  }\n\nconst createOne = async function(req, res, next) {\n    const { horario_idhorario, grupo_idgrupo, users_idusers, dia } = req.body;\n    const response = await pool.query('INSERT INTO grupohorarios (horario_idhorario, grupo_idgrupo, users_idusers, dia) '\n     + 'VALUES ($1, $2, $3, $4)', [horario_idhorario, grupo_idgrupo, users_idusers, dia]);\n    const val = await pool.query('SELECT * from grupohorarios where grupo_idgrupo = $1', [grupo_idgrupo]);\n    res.json({\n        message: \"correctly added\",\n        body: {\n            res: val.rows\n        }\n    });\n  }\n\nconst deleteById = async function(req, res, next) {\n    const response = await pool.query('DELETE FROM grupohorarios where idgrupohorarios = $1', [req.params.id]);\n    res.json(`deleted sucessfully by ${req.params.id}`);\n  }\n\nconst updateById = async function(req, res, next) {\n    const { horario_idhorario, grupo_idgrupo, users_idusers, dia } = req.body;\n    const id = req.params.id;\n    const response = await pool.query('UPDATE grupohorarios SET horario_idhorario = $1, grupo_idgrupo = $2'\n    + ', users_idusers = $3, dia = $4 where idgrupohorarios = $5', [horario_idhorario, grupo_idgrupo, users_idusers, dia, id]);\n    res.json(`updated sucessfully by: ${id}`);\n  }\n\nmodule.exports = {\n   getAll, updateById, deleteById, createOne, getById\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/controllers/grupoHorarios.js b/controllers/grupoHorarios.js
+--- a/controllers/grupoHorarios.js	(revision e2c42acf4390d87c2d6a734540b51404204e995d)
++++ b/controllers/grupoHorarios.js	(date 1607588879102)
+@@ -10,6 +10,11 @@
+     res.status(200).json(response.rows);
+   }
+ 
++const getByIdGrupo = async function(req, res, next) {
++  const response = await pool.query('SELECT * from grupohorarios where grupo_idgrupo = $1', [req.params.id]);
++  res.status(200).json(response.rows);
++}
++
+ const createOne = async function(req, res, next) {
+     const { horario_idhorario, grupo_idgrupo, users_idusers, dia } = req.body;
+     const response = await pool.query('INSERT INTO grupohorarios (horario_idhorario, grupo_idgrupo, users_idusers, dia) '
+@@ -37,5 +42,5 @@
+   }
+ 
+ module.exports = {
+-   getAll, updateById, deleteById, createOne, getById
++   getAll, updateById, deleteById, createOne, getById, getByIdGrupo
+ }
+Index: routes/grupoHorarios.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>var express = require('express');\nvar router = express.Router();\n\nconst { getAll, getById, deleteById, updateById , createOne } = require('../controllers/grupoHorarios');\n\nrouter.get('/', getAll);\nrouter.post('/', createOne);\nrouter.get('/:id', getById);\nrouter.delete('/:id', deleteById);\nrouter.put('/:id', updateById);\n\nmodule.exports = router;
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/routes/grupoHorarios.js b/routes/grupoHorarios.js
+--- a/routes/grupoHorarios.js	(revision e2c42acf4390d87c2d6a734540b51404204e995d)
++++ b/routes/grupoHorarios.js	(date 1607588879115)
+@@ -1,12 +1,13 @@
+ var express = require('express');
+ var router = express.Router();
+ 
+-const { getAll, getById, deleteById, updateById , createOne } = require('../controllers/grupoHorarios');
++const { getAll, getById, deleteById, updateById , createOne, getByIdGrupo } = require('../controllers/grupoHorarios');
+ 
+ router.get('/', getAll);
+ router.post('/', createOne);
+ router.get('/:id', getById);
++router.get('/bygrupo/:id', getByIdGrupo);
+ router.delete('/:id', deleteById);
+ router.put('/:id', updateById);
+ 
+-module.exports = router;
+\ No newline at end of file
++module.exports = router;
