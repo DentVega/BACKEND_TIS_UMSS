@@ -10,6 +10,11 @@ const getById = async function(req, res, next) {
     res.status(200).json(response.rows);
   }
 
+const getByIdGrupo = async function(req, res, next) {
+  const response = await pool.query('SELECT * from grupohorarios where grupo_idgrupo = $1', [req.params.id]);
+  res.status(200).json(response.rows);
+}
+
 const createOne = async function(req, res, next) {
     const { horario_idhorario, grupo_idgrupo, users_idusers, dia } = req.body;
     const response = await pool.query('INSERT INTO grupohorarios (horario_idhorario, grupo_idgrupo, users_idusers, dia) '
@@ -42,5 +47,5 @@ const getByUser = async function(req, res, next) {
   }
 
 module.exports = {
-   getAll, updateById, deleteById, createOne, getById, getByUser
+   getAll, updateById, deleteById, createOne, getById, getByUser, getByIdGrupo
 }
