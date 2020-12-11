@@ -31,7 +31,7 @@ let notificationsRouter = require('./routes/notificaciones');
 var app = express();
 
 // Schedule tasks to be run on the server.
-cron.schedule('* * * * *', function() {
+cron.schedule('50 * * * *', function() {
   console.log('running a task every minute');
 });
 
