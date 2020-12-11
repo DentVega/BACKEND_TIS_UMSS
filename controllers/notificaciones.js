@@ -1,4 +1,5 @@
 const pool = require('./pool');
+const sendmail = require('./sendmail');
 
 const getAll = async function (req, res, next) {
   const response = await pool.query('SELECT * from notificaciones');
@@ -11,7 +12,8 @@ const getByIdUser = async function (req, res, next) {
 };
 
 const createNotifications = async function (req, res, next) {
-  const { users_idusers, revisado, mensaje, dia } = req.body;
+  const { users_idusers, revisado, mensaje, dia, email } = req.body;
+  await sendmail.sendNotification(email, mensaje);
   const response = await pool.query('INSERT INTO notificaciones (users_idusers, revisado, mensaje, dia) '
     + 'VALUES ($1, $2, $3, $4)', [users_idusers, revisado, mensaje, dia]);
   const val = await pool.query('SELECT * from notificaciones where users_idusers = $1', [users_idusers]);

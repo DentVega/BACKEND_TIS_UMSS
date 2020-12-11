@@ -20,7 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a13f72d-95f9-4ede-839a-6e8461573887" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/routes/notificaciones.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/notificaciones.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/notificaciones.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/notificaciones.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/sendmail.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/sendmail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <list id="0ed698d0-7ff6-4d49-a155-54de0ef64901" name="test" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +87,7 @@
       <workItem from="1605197923704" duration="15000" />
       <workItem from="1605293691608" duration="1105000" />
       <workItem from="1605627851190" duration="1234000" />
-      <workItem from="1607587687892" duration="8267000" />
+      <workItem from="1607587687892" duration="9737000" />
     </task>
     <task id="LOCAL-00001" summary="- add cors">
       <created>1603122083807</created>
