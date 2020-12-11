@@ -27,7 +27,7 @@ const sendNotification = async function(email, message) {
   const msg = {
     to: email,
     from: "villarroel24kyle@gmail.com",
-    subject: "Credentials",
+    subject: "Notificacion de App Umss",
     text: message,
     html: `<strong>${message}</strong>`,
   };
