@@ -24,10 +24,14 @@ const createNotifications = async function (req, res, next) {
 };
 
 const deleteById = async function (req, res, next) {
-  const response = await pool.query('DELETE FROM notificaciones where users_idusers = $1', [req.params.id]);
+  const response = await pool.query('DELETE FROM notificaciones where idnotificaciones = $1', [req.params.id]);
   res.json(`deleted sucessfully by ${req.params.id}`);
 };
 
+const deleteByIdUser = async function (req, res, next) {
+  const response = await pool.query('DELETE FROM notificaciones where users_idusers = $1', [req.params.id]);
+  res.json(`deleted sucessfully by ${req.params.id}`);
+};
 module.exports = {
-  getAll, getByIdUser, createNotifications, deleteById
+  getAll, getByIdUser, createNotifications, deleteById, deleteByIdUser
 }
