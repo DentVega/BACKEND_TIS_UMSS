@@ -8,6 +8,6 @@ router.post('/', createOne);
 router.get('/:id', getById);
 router.delete('/:id', deleteById);
 router.put('/:id', updateById);
-router.get('/grupohorario/:id', getByIdGrupoHorario);
+router.get('/assistance/:id', getByIdGrupoHorario);
 
 module.exports = router;

@@ -11,15 +11,15 @@ const getById = async function(req, res, next) {
   }
 
 const getByIdGrupoHorario = async function(req, res, next) {
-    const response = await pool.query('SELECT * from additionalclass where grupohorarios_idgrupohorarios = $1', [req.params.id]);
+    const response = await pool.query('SELECT * from additionalclass where assistance_idassistance  = $1', [req.params.id]);
     res.status(200).json(response.rows);
   }
 
 const createOne = async function(req, res, next) {
-    const { grupohorarios_idgrupohorarios, reason, accepted } = req.body;
-    const response = await pool.query('INSERT INTO additionalclass (grupohorarios_idgrupohorarios, reason, accepted) VALUES ($1, $2, $3)'
-         , [grupohorarios_idgrupohorarios, reason, accepted]);
-    const val = await pool.query('SELECT * from additionalclass where reason = $1', [reason]);
+    const { assistance_idassistance, accepted, timeclass, dateclass } = req.body;
+    const response = await pool.query('INSERT INTO additionalclass (assistance_idassistance, accepted, timeclass, dateclass) VALUES ($1, $2, $3, $4)'
+         , [assistance_idassistance, accepted, timeclass, dateclass]);
+    const val = await pool.query('SELECT * from additionalclass where assistance_idassistance = $1', [assistance_idassistance]);
     res.json({
         message: "correctly added",
         body: {
@@ -34,10 +34,10 @@ const deleteById = async function(req, res, next) {
   }
 
 const updateById = async function(req, res, next) {
-    const { grupohorarios_idgrupohorarios, reason, accepted } = req.body;
+    const { assistance_idassistance, accepted, timeclass, dateclass } = req.body;
     const id = req.params.id;
-    const response = await pool.query('UPDATE additionalclass SET grupohorarios_idgrupohorarios = $1, reason = $2, accepted = $3 where idadditionalclass = $4'
-    , [grupohorarios_idgrupohorarios, reason, accepted, id]);
+    const response = await pool.query('UPDATE additionalclass SET assistance_idassistance = $1, accepted = $2, timeclass = $3 , dateclass = $4 where idadditionalclass = $5'
+    , [assistance_idassistance, accepted, timeclass, dateclass, id]);
     res.json(`updated sucessfully by: ${id}`);
   }
 
