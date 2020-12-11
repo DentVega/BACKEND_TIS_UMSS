@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+var cron = require('node-cron');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -28,6 +29,13 @@ let additionalClassRouter = require('./routes/additionalClass');
 let notificationsRouter = require('./routes/notificaciones');
 
 var app = express();
+
+// Schedule tasks to be run on the server.
+cron.schedule('* 40 * * *', function() {
+  console.log('running a task every minute');
+});
+
+app.listen(3000);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
