@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+var cron = require('node-cron');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -25,8 +26,31 @@ let sendmailRouter = require('./routes/sendmail');
 let assistanceRouter = require('./routes/assistance');
 let addicionalReportRouter = require('./routes/addicionalReport');
 let additionalClassRouter = require('./routes/additionalClass');
+let notificationsRouter = require('./routes/notificaciones');
+let jobs = require('./controllers/jobs');
 
 var app = express();
+
+// Schedule tasks to be run on the server.
+cron.schedule('50 * * * *', function() {
+  try {
+    console.log('running a task every minute');
+    jobs.notificarClases();
+  } catch (e) {
+    console.error('Error schedule', e.message);
+  }
+});
+
+cron.schedule('58 * * * 5', function() {
+  try {
+    console.log('running a task every minute viernes');
+    jobs.notificarClases();
+  } catch (e) {
+    console.error('Error schedule', e.message);
+  }
+});
+
+app.listen(3000);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -59,6 +83,7 @@ app.use('/sendmail', sendmailRouter);
 app.use('/assistance', assistanceRouter);
 app.use('/addicional', addicionalReportRouter);
 app.use('/additionalclass', additionalClassRouter);
+app.use('/notificaciones', notificationsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

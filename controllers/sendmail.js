@@ -15,7 +15,7 @@ const sendCredentials = async function(req, res, next) {
   .send(msg)
   .then(() => {}, error => {
     console.error(error);
- 
+
     if (error.response) {
       console.error(error.response.body)
     }
@@ -23,6 +23,26 @@ const sendCredentials = async function(req, res, next) {
   res.status(200).json("Correctly sent");
 }
 
+const sendNotification = async function(email, message) {
+  const msg = {
+    to: email,
+    from: "villarroel24kyle@gmail.com",
+    subject: "Notificacion de App Umss",
+    text: message,
+    html: `<strong>${message}</strong>`,
+  };
+  await sgMail
+  .send(msg)
+  .then(() => {}, error => {
+    console.error(error);
+
+    if (error.response) {
+      console.error(error.response.body)
+    }
+  });
+}
+
 module.exports = {
-  sendCredentials
+  sendCredentials,
+  sendNotification
 }
