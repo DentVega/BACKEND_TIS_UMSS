@@ -16,9 +16,9 @@ const getByIdGrupoHorario = async function(req, res, next) {
   }
 
 const createOne = async function(req, res, next) {
-    const { assistance_idassistance, accepted, timeclass, dateclass } = req.body;
-    const response = await pool.query('INSERT INTO additionalclass (assistance_idassistance, accepted, timeclass, dateclass) VALUES ($1, $2, $3, $4)'
-         , [assistance_idassistance, accepted, timeclass, dateclass]);
+    const { grupohorarios_idgrupohorarios, falta_idfalta, assistance_idassistance, accepted, timeclass, dateclass } = req.body;
+    const response = await pool.query('INSERT INTO additionalclass (grupohorarios_idgrupohorarios, falta_idfalta, assistance_idassistance, accepted, timeclass, dateclass) VALUES ($1, $2, $3, $4, $5, $6)'
+         , [grupohorarios_idgrupohorarios, falta_idfalta, assistance_idassistance, accepted, timeclass, dateclass]);
     const val = await pool.query('SELECT * from additionalclass where assistance_idassistance = $1', [assistance_idassistance]);
     res.json({
         message: "correctly added",
@@ -34,10 +34,10 @@ const deleteById = async function(req, res, next) {
   }
 
 const updateById = async function(req, res, next) {
-    const { assistance_idassistance, accepted, timeclass, dateclass } = req.body;
+    const { grupohorarios_idgrupohorarios, falta_idfalta, assistance_idassistance, accepted, timeclass, dateclass } = req.body;
     const id = req.params.id;
-    const response = await pool.query('UPDATE additionalclass SET assistance_idassistance = $1, accepted = $2, timeclass = $3 , dateclass = $4 where idadditionalclass = $5'
-    , [assistance_idassistance, accepted, timeclass, dateclass, id]);
+    const response = await pool.query('UPDATE additionalclass SET grupohorarios_idgrupohorarios = $1, falta_idfalta = $2, assistance_idassistance = $3, accepted = $4, timeclass = $5 , dateclass = $6 where idadditionalclass = $7'
+    , [grupohorarios_idgrupohorarios, falta_idfalta, assistance_idassistance, accepted, timeclass, dateclass, id]);
     res.json(`updated sucessfully by: ${id}`);
   }
 
