@@ -17,10 +17,9 @@ const getByIdGrupoHorario = async function(req, res, next) {
 
 const createOne = async function(req, res, next) {
     const { grupohorarios_idgrupohorarios, falta_idfalta, accepted, timeclass, dateclass } = req.body;
-    console.log("prueba")
     const response = await pool.query('INSERT INTO additionalclass (grupohorarios_idgrupohorarios, falta_idfalta, accepted, timeclass, dateclass) VALUES ($1, $2, $3, $4, $5)'
          , [grupohorarios_idgrupohorarios, falta_idfalta, accepted, timeclass, dateclass]);
-    const val = await pool.query('SELECT * from additionalclass where grupohorarios_idgrupohorarios = $1 and falta_idfalta = $2', [grupohorarios_idgrupohorarios]);
+    const val = await pool.query('SELECT * from additionalclass where grupohorarios_idgrupohorarios = $1 and falta_idfalta = $2', [grupohorarios_idgrupohorarios,falta_idfalta]);
     res.json({
         message: "correctly added",
         body: {
