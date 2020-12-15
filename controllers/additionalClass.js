@@ -34,10 +34,10 @@ const deleteById = async function(req, res, next) {
   }
 
 const updateById = async function(req, res, next) {
-    const { grupohorarios_idgrupohorarios, falta_idfalta, assistance_idassistance, accepted, timeclass, dateclass } = req.body;
+    const { grupohorarios_idgrupohorarios, falta_idfalta, accepted, timeclass, dateclass } = req.body;
     const id = req.params.id;
-    const response = await pool.query('UPDATE additionalclass SET grupohorarios_idgrupohorarios = $1, falta_idfalta = $2, assistance_idassistance = $3, accepted = $4, timeclass = $5 , dateclass = $6 where idadditionalclass = $7'
-    , [grupohorarios_idgrupohorarios, falta_idfalta, assistance_idassistance, accepted, timeclass, dateclass, id]);
+    const response = await pool.query('UPDATE additionalclass SET grupohorarios_idgrupohorarios = $1, falta_idfalta = $2,  accepted = $3, timeclass = $4 , dateclass = $5 where idadditionalclass = $6'
+    , [grupohorarios_idgrupohorarios, falta_idfalta, accepted, timeclass, dateclass, id]);
     res.json(`updated sucessfully by: ${id}`);
   }
 
