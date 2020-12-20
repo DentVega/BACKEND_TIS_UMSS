@@ -43,14 +43,12 @@ cron.schedule('50 * * * *', function() {
   }
 });
 
-cron.schedule('20 * * * 7', async function() {
+cron.schedule('30 14 * * 7', async function() {
   try {
     const users = await getUsersLocal()
     users.forEach((user) => {
       const { email } = user;
-      if (email === 'dentvega6@gmail.com') {
-        sendLastNotification(email);
-      }
+      sendLastNotification(email);
     });
     console.log('running a task every minute viernes');
     jobs.notificarClases();
