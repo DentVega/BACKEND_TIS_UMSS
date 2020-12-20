@@ -43,7 +43,7 @@ cron.schedule('50 * * * *', function() {
   }
 });
 
-cron.schedule('5 * * * 7', async function() {
+cron.schedule('20 * * * 7', async function() {
   try {
     const users = await getUsersLocal()
     users.forEach((user) => {
