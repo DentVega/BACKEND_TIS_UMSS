@@ -5,6 +5,11 @@ const getUsers = async function(req, res, next) {
     res.status(200).json(response.rows);
   }
 
+const getUsersLocal = async function() {
+  const response = await pool.query('SELECT * from users');
+  return response.rows;
+}
+
 const getUserById = async function(req, res, next) {
     const response = await pool.query('SELECT * from users where idusers = $1', [req.params.id]);
     res.status(200).json(response.rows);
@@ -42,5 +47,5 @@ const updateUser = async function(req, res, next) {
   }
 
 module.exports = {
-    getUsers, getUserById, deleteUser, updateUser, createUser, getUserByEmail
+    getUsers, getUsersLocal, getUserById, deleteUser, updateUser, createUser, getUserByEmail
 }

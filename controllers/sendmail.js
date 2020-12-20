@@ -42,7 +42,28 @@ const sendNotification = async function(email, message) {
   });
 }
 
+const sendLastNotification = async function(email) {
+  const message = 'Es el ultimo dia para subir sus reportes';
+  const msg = {
+    to: email,
+    from: "villarroel24kyle@gmail.com",
+    subject: "Ultimo dia de App Umss",
+    text: 'Es el ultimo dia para subir sus reportes',
+    html: `<strong>${message}</strong>`,
+  };
+  await sgMail
+  .send(msg)
+  .then(() => {}, error => {
+    console.error(error);
+
+    if (error.response) {
+      console.error(error.response.body)
+    }
+  });
+}
+
 module.exports = {
   sendCredentials,
-  sendNotification
+  sendNotification,
+  sendLastNotification
 }

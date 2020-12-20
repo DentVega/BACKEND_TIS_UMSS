@@ -28,6 +28,8 @@ let addicionalReportRouter = require('./routes/addicionalReport');
 let additionalClassRouter = require('./routes/additionalClass');
 let notificationsRouter = require('./routes/notificaciones');
 let jobs = require('./controllers/jobs');
+const { getUsersLocal } = require('./controllers/users');
+const { sendLastNotification } = require('./controllers/sendmail')
 
 var app = express();
 
@@ -41,8 +43,15 @@ cron.schedule('50 * * * *', function() {
   }
 });
 
-cron.schedule('58 * * * 5', function() {
+cron.schedule('5 * * * 7', async function() {
   try {
+    const users = await getUsersLocal()
+    users.forEach((user) => {
+      const { email } = user;
+      if (email === 'dentvega6@gmail.com') {
+        sendLastNotification(email);
+      }
+    });
     console.log('running a task every minute viernes');
     jobs.notificarClases();
   } catch (e) {
