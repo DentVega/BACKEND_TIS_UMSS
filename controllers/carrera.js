@@ -11,9 +11,9 @@ const getById = async function(req, res, next) {
   }
 
 const createOne = async function(req, res, next) {
-    const { facultad_idfacultad, namecarrera } = req.body;
-    const response = await pool.query('INSERT INTO carrera (facultad_idfacultad, namecarrera) VALUES ($1, $2)'
-         , [facultad_idfacultad, namecarrera]);
+    const { facultad_idfacultad, namecarrera, descripcion } = req.body;
+    const response = await pool.query('INSERT INTO carrera (facultad_idfacultad, namecarrera, descripcion) VALUES ($1, $2, $3)'
+         , [facultad_idfacultad, namecarrera, descripcion]);
     const val = await pool.query('SELECT * from carrera where namecarrera = $1', [namecarrera]);
     res.json({
         message: "correctly added",
@@ -29,9 +29,9 @@ const deleteById = async function(req, res, next) {
   }
 
 const updateById = async function(req, res, next) {
-    const { facultad_idfacultad, namecarrera } = req.body;
+    const { facultad_idfacultad, namecarrera, descripcion } = req.body;
     const id = req.params.id;
-    const response = await pool.query('UPDATE carrera SET facultad_idfacultad = $1, namecarrera = $2 where idcarrera = $3', [facultad_idfacultad, namecarrera, id]);
+    const response = await pool.query('UPDATE carrera SET facultad_idfacultad = $1, namecarrera = $2, descripcion = $3 where idcarrera = $4', [facultad_idfacultad, namecarrera, descripcion, id]);
     res.json(`updated sucessfully by: ${id}`);
   }
 
