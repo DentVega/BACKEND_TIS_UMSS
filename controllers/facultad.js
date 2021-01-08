@@ -11,9 +11,9 @@ const getFacultadById = async function(req, res, next) {
   }
 
 const createFacultad = async function(req, res, next) {
-    const { namefacultad } = req.body;
-    const response = await pool.query('INSERT INTO facultad (namefacultad) VALUES ($1)'
-         , [namefacultad]);
+    const { namefacultad, descripcion } = req.body;
+    const response = await pool.query('INSERT INTO facultad (namefacultad, descripcion) VALUES ($1, $2)'
+         , [namefacultad, descripcion]);
     const val = await pool.query('SELECT * from facultad where namefacultad = $1', [namefacultad]);
     res.json({
         message: "correctly added",
@@ -29,9 +29,9 @@ const deleteFacultad = async function(req, res, next) {
   }
 
 const updateFacultad = async function(req, res, next) {
-    const { namefacultad } = req.body;
+    const { namefacultad, descripcion } = req.body;
     const id = req.params.id;
-    const response = await pool.query('UPDATE facultad SET namefacultad = $1 where idfacultad = $2', [namefacultad, id]);
+    const response = await pool.query('UPDATE facultad SET namefacultad = $1, descripcion = $2 where idfacultad = $3', [namefacultad, descripcion, id]);
     res.json(`updated sucessfully user: ${id}`);
   }
 
