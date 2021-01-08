@@ -11,9 +11,9 @@ const getById = async function(req, res, next) {
   }
 
 const createOne = async function(req, res, next) {
-    const { carrera_idcarrera, namemateria } = req.body;
-    const response = await pool.query('INSERT INTO materia (carrera_idcarrera, namemateria) VALUES ($1, $2)'
-         , [carrera_idcarrera, namemateria]);
+    const { carrera_idcarrera, namemateria, descripcion } = req.body;
+    const response = await pool.query('INSERT INTO materia (carrera_idcarrera, namemateria, descripcion) VALUES ($1, $2, $3)'
+         , [carrera_idcarrera, namemateria, descripcion]);
     const val = await pool.query('SELECT * from materia where namemateria = $1', [namemateria]);
     res.json({
         message: "correctly added",
@@ -29,9 +29,9 @@ const deleteById = async function(req, res, next) {
   }
 
 const updateById = async function(req, res, next) {
-    const { carrera_idcarrera, namemateria } = req.body;
+    const { carrera_idcarrera, namemateria, descripcion } = req.body;
     const id = req.params.id;
-    const response = await pool.query('UPDATE materia SET carrera_idcarrera = $1, namemateria = $2 where idmateria = $3', [carrera_idcarrera, namemateria, id]);
+    const response = await pool.query('UPDATE materia SET carrera_idcarrera = $1, namemateria = $2, descripcion = $3 where idmateria = $4', [carrera_idcarrera, namemateria, descripcion, id]);
     res.json(`updated sucessfully by: ${id}`);
   }
 
