@@ -21,9 +21,9 @@ const getUserByEmail = async function(req, res, next) {
   }
 
 const createUser = async function(req, res, next) {
-    const { firstname, lastname, phone, email, ci, userpassword } = req.body;
-    const response = await pool.query('INSERT INTO users (firstname, lastname, phone, email, ci, userpassword) VALUES ($1, $2, $3, $4, $5, $6)'
-         , [firstname, lastname, phone, email, ci, userpassword]);
+    const { firstname, lastname, phone, email, ci, userpassword, cicomplemento } = req.body;
+    const response = await pool.query('INSERT INTO users (firstname, lastname, phone, email, ci, userpassword, cicomplemento) VALUES ($1, $2, $3, $4, $5, $6, $7)'
+         , [firstname, lastname, phone, email, ci, userpassword, cicomplemento]);
     const val = await pool.query('SELECT * from users where email = $1', [email]);
     res.json({
         message: "correctly added",
@@ -39,10 +39,10 @@ const deleteUser = async function(req, res, next) {
   }
 
 const updateUser = async function(req, res, next) {
-    const { firstname, lastname, phone, email, userpassword } = req.body;
+    const { firstname, lastname, phone, email, userpassword, cicomplemento } = req.body;
     const id = req.params.id;
     const response = await pool.query('UPDATE users SET firstname = $1, lastname = $2, phone = $3, email = $4, '
-    + 'userpassword = $5 where idusers = $6', [ firstname, lastname, phone, email, userpassword, id]);
+    + 'userpassword = $5, cicomplemento = $6 where idusers = $7', [ firstname, lastname, phone, email, userpassword, cicomplemento, id]);
     res.json(`updated sucessfully user: ${id}`);
   }
 
