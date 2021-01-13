@@ -14,7 +14,8 @@ const createOne = async function(req, res, next) {
     const { materia_idmateria } = req.body;
     const response = await pool.query('INSERT INTO grupo (materia_idmateria) VALUES ($1)'
          , [materia_idmateria]);
-    const val = await pool.query('SELECT * from grupo where materia_idmateria = $1', [materia_idmateria]);
+    // const val = await pool.query('SELECT * from grupo where materia_idmateria = $1', [materia_idmateria]);
+    const val = await pool.query('select * from grupo order by idgrupo desc limit 1');
     res.json({
         message: "correctly added",
         body: {
